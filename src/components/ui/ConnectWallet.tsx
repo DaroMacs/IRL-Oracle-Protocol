@@ -1,7 +1,7 @@
 import { usePrivy } from "@privy-io/react-auth";
 
 const ConnectWallet = () => {
-  const { authenticated, user, logout, login } = usePrivy();
+  const { ready, authenticated, user, logout, login } = usePrivy();
 
   const handleLogout = () => {
     localStorage.clear();
@@ -11,7 +11,7 @@ const ConnectWallet = () => {
 
   return (
     <button
-      className="border text-sm font-medium relative border-neutral-200 dark:border-white/20 text-black dark:text-white px-4 py-2 rounded-full"
+      className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full"
       onClick={() => {
         if (authenticated) {
           handleLogout();
