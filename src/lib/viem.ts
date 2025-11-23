@@ -1,6 +1,7 @@
 //lib/viem.ts
 import { createPublicClient, createWalletClient, custom, http } from "viem";
 import { mantleSepoliaTestnet } from "viem/chains";
+import type { EIP1193Provider } from "viem";
 
 export const publicClient = createPublicClient({
   chain: mantleSepoliaTestnet,
@@ -12,7 +13,7 @@ export async function getWalletClient() {
 
   const walletClient = createWalletClient({
     chain: mantleSepoliaTestnet,
-    transport: custom(window.ethereum),
+    transport: custom(window.ethereum as EIP1193Provider),
   });
 
   const [address] = await walletClient.getAddresses();
